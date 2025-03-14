@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_wallet"
+        android:icon="@drawable/ic_credit_card"
+        android:title="@string/title_wallet" />
+
+
+    <item
+        android:id="@+id/navigation_defi"
+        android:icon="@drawable/ic_whatshot"
+        android:title="@string/title_defi" />
+
+
+</menu>
