@@ -8,6 +8,7 @@ fun CurrencyInfo.toCoinEntry(): CoinEntry {
         name = name,
         symbol = symbol,
         imageUrl = colorful_image_url,
+        decimal = display_decimal
     )
 }
 

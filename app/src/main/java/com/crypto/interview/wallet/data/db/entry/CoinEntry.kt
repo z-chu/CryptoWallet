@@ -6,9 +6,10 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "coin"
 )
-data class CoinEntry (
+data class CoinEntry(
     @PrimaryKey val id: String,
     val name: String,
     val symbol: String,
     val imageUrl: String,
+    val decimal: Int
 )

@@ -16,7 +16,7 @@ import com.crypto.interview.wallet.data.db.entry.CurrencyRateEntry
         CoinBalanceEntry::class,
         CurrencyRateEntry::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters

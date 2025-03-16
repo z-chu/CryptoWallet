@@ -7,6 +7,7 @@ import com.crypto.interview.wallet.data.db.entry.CoinBalanceEntry
 import com.crypto.interview.wallet.data.realtime.model.BalanceRequest
 import java.util.HashMap
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -56,7 +57,7 @@ class RealtimeBalanceTransport(private val balanceDao: CoinBalanceDao) {
 
     @OptIn(DelicateCoroutinesApi::class)
     private fun loadBalance(request: BalanceRequest) {
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.Main) {
             val coinBalance = balanceDao.getCoinBalance(request.walletId, request.coinId)
             if (coinBalance != null) {
                 balanceSubjects[request]?.value = coinBalance

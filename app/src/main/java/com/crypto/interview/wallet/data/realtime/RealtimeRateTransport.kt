@@ -6,6 +6,7 @@ import com.crypto.interview.wallet.data.db.dao.CurrencyRateDao
 import com.crypto.interview.wallet.data.db.entry.CurrencyRateEntry
 import com.crypto.interview.wallet.data.realtime.model.RateRequest
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.HashMap
@@ -46,7 +47,7 @@ class RealtimeRateTransport(private val rateDao: CurrencyRateDao) {
     private fun loadRate(rateRequest: RateRequest) {
         // 从本地数据库加载汇率
         // 示例代码，需要根据实际情况调整
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.Main) {
             val currencyRate = rateDao.getCurrencyRate(rateRequest.from, rateRequest.to)
             if (currencyRate != null) {
                 rateSubjects[rateRequest]?.value = currencyRate;
