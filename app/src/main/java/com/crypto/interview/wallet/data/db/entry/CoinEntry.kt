@@ -1,4 +1,14 @@
 package com.crypto.interview.wallet.data.db.entry
 
-class CoinEntry {
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "coin"
+)
+data class CoinEntry (
+    @PrimaryKey val id: String,
+    val name: String,
+    val symbol: String,
+    val imageUrl: String,
+)
